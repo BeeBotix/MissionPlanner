@@ -1,0 +1,230 @@
+:root {
+  --bee-yellow: #facc15;
+  --silk-white: #f8fafc;
+  --navy-blue: #020617;
+  --black: #000000;
+}
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--navy-blue);
+  color: var(--silk-white);
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+.top-bar {
+  height: 64px;
+  background-color: var(--black);
+  border-bottom: 3px solid var(--bee-yellow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  flex-shrink: 0;
+}
+
+.top-bar .title {
+  color: var(--bee-yellow);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.top-bar .right {
+  display: flex;
+  gap: 10px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
+}
+
+.btn.primary {
+  background-color: var(--bee-yellow);
+  color: var(--black);
+}
+
+.btn.primary.active {
+  background-color: #eab308;
+}
+
+.btn.secondary {
+  background-color: transparent;
+  color: var(--silk-white);
+  border: 1px solid var(--bee-yellow);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* =========================
+   NOTIFICATION BAR
+========================= */
+.notification {
+  height: 36px;
+  background-color: var(--bee-yellow);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.notification.hidden {
+  display: none;
+}
+
+/* =========================
+   MAP
+========================= */
+#map {
+  flex: 1;
+  width: 100%;
+}
+
+/* =========================
+   SIDE PANEL
+========================= */
+.side-panel {
+  position: fixed;
+  top: 64px;
+  right: 0;
+  width: 320px;
+  height: calc(100vh - 64px);
+  background-color: var(--black);
+  border-left: 2px solid var(--bee-yellow);
+  padding: 16px;
+  z-index: 1200;
+  overflow-y: auto;
+}
+
+.side-panel.hidden {
+  display: none;
+}
+
+.side-panel-header {
+  color: var(--bee-yellow);
+  font-size: 1rem;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+/* =========================
+   FORM ELEMENTS
+========================= */
+.side-panel label {
+  font-size: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+  color: var(--silk-white);
+}
+
+.side-panel input,
+.side-panel select {
+  margin-top: 6px;
+  padding: 8px;
+  background-color: var(--navy-blue);
+  border: 1px solid var(--bee-yellow);
+  color: var(--silk-white);
+  font-size: 0.75rem;
+  border-radius: 6px;
+}
+
+.side-panel input::placeholder {
+  color: #9ca3af;
+}
+
+/* =========================
+   TIME INPUT (HH:MM:SS)
+========================= */
+.time-input {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.time-input input {
+  width: 60px;
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 8px;
+}
+
+.time-input span {
+  color: var(--bee-yellow);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* =========================
+   SIDE PANEL ACTIONS
+========================= */
+.side-panel-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.side-panel-actions .btn {
+  width: 100%;
+}
+
+.btn.secondary.active {
+  background-color: var(--bee-yellow);
+  color: var(--black);
+}
+
+.workzone-hint {
+  color: var(--bee-yellow);
+  font-size: 0.7rem;
+  margin-top: 6px;
+}
+
+/* =========================
+   MISSION METADATA SECTION
+========================= */
+#missionMetadataSection {
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--bee-yellow);
+  padding-bottom: 15px;
+}
+
+#missionMetadataSection label {
+  margin-bottom: 10px;
+}
+
+/* Additional styling for task duration input */
+#taskDurationWrap {
+  margin-top: 10px;
+}

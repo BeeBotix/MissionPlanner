@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeeBotix Mission Planner</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <!-- TOP CONTROL BAR -->
+  <header class="top-bar">
+    <div class="left">
+      <span class="title">BeeBotix's Mission Maker</span>
+    </div>
+
+    <div class="right">
+      <button id="missionToggleBtn" class="btn primary">
+        Create Mission Planner
+      </button>
+
+      <button id="workZoneBtn" class="btn secondary">
+        WorkZone
+      </button>
+
+      <button id="exportBtn" class="btn secondary" disabled>
+        Export Mission
+      </button>
+
+      <button id="clearMissionBtn" class="btn secondary">
+        Clear Mission
+      </button>
+    </div>
+  </header>
+
+  <!-- NOTIFICATION BAR -->
+  <div id="notificationBar" class="notification hidden"></div>
+
+  <!-- RIGHT SIDE PANEL -->
+  <aside id="sidePanel" class="side-panel hidden">
+    <div class="side-panel-header">Mission Node</div>
+
+    <!-- Mission Metadata Section -->
+    <div id="missionMetadataSection">
+      <label>
+        Mission Name
+        <input
+          id="missionName"
+          type="text"
+          placeholder="Enter mission name"
+          autocomplete="off"
+        />
+      </label>
+
+      <label>
+        Mission Type
+        <select id="missionType">
+          <option value="">Select Mission Type</option>
+          <option value="1_time">One-Time Mission</option>
+          <option value="infinity">Infinity Mission</option>
+        </select>
+      </label>
+    </div>
+
+    <!-- Node Details Section -->
+    <label>
+      Category
+      <select id="nodeCategory">
+        <option value="">Select</option>
+        <option value="home">Home Location</option>
+        <option value="waypoint">Waypoint</option>
+        <option value="special">Special Task</option>
+        <option value="hold">Hold & Do Task</option>
+        <option value="safety">Safety Dock</option>
+      </select>
+    </label>
+
+    <label>
+      ID
+      <input
+        id="nodeId"
+        type="text"
+        placeholder="unique_id (A-Z a-z 0-9 _ -)"
+        autocomplete="off"
+      />
+    </label>
+
+    <label>
+      Name
+      <input
+        id="nodeName"
+        type="text"
+        placeholder="Human readable name"
+        autocomplete="off"
+      />
+    </label>
+
+    <label>
+      Task
+      <input
+        id="nodeTask"
+        type="text"
+        placeholder="task_code (A-Z a-z 0-9 _ -)"
+        autocomplete="off"
+      />
+    </label>
+
+    <!-- HOLD TIME : HH MM SS -->
+    <label id="holdTimeWrap" class="hidden">
+      Hold Time (HH : MM : SS)
+      <div class="time-input">
+        <input id="hh" type="text" maxlength="2" placeholder="HH" inputmode="numeric" />
+        <span>:</span>
+        <input id="mm" type="text" maxlength="2" placeholder="MM" inputmode="numeric" />
+        <span>:</span>
+        <input id="ss" type="text" maxlength="2" placeholder="SS" inputmode="numeric" />
+      </div>
+    </label>
+
+    <!-- TASK DURATION : HH MM SS -->
+    <label id="taskDurationWrap" class="hidden">
+      Task Duration (HH : MM : SS)
+      <div class="time-input">
+        <input id="task_hh" type="text" maxlength="2" placeholder="HH" inputmode="numeric" />
+        <span>:</span>
+        <input id="task_mm" type="text" maxlength="2" placeholder="MM" inputmode="numeric" />
+        <span>:</span>
+        <input id="task_ss" type="text" maxlength="2" placeholder="SS" inputmode="numeric" />
+      </div>
+    </label>
+
+    <div class="side-panel-actions">
+      <button id="createNodeBtn" class="btn primary">
+        Save Node
+      </button>
+      <button id="cancelNodeBtn" class="btn secondary">
+        Cancel
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAP -->
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- App JS -->
+  <script src="app.js"></script>
+</body>
+</html>
